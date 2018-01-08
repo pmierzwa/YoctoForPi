@@ -1,0 +1,7 @@
+WARNING: No bb files matched BBFILE_PATTERN_layerpymysql '^/home/peter/poky/meta-pymysql/'
+NOTE: Resolving any missing task queue dependencies
+ERROR: Nothing RPROVIDES 'pymysql' (but /home/peter/poky/meta/recipes-core/images/core-image-minimal.bb RDEPENDS on or otherwise requires it)
+NOTE: Runtime target 'pymysql' is unbuildable, removing...
+Missing or unbuildable dependency chain was: ['pymysql']
+ERROR: Required build target 'core-image-minimal' has no buildable providers.
+Missing or unbuildable dependency chain was: ['core-image-minimal', 'pymysql']
