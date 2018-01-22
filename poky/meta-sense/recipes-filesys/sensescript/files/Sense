@@ -17,10 +17,10 @@ humidity = 100 * (data[3] * 256 + data[4])/65535.0      #Calculate himidity
 # MySQL variable for database
 print ("Connecting...")
 
-conn = pymysql.connect(host='173.249.0.40',
-                       user= 'yoctopi0@90.184.21.122',
-                       password='customlinux123A',
-                       db = 'Yocto')
+conn = pymysql.connect(host='hostIP',
+                       user= 'username@yourIP',
+                       password='password',
+                       db = 'Database')
 
 cursor=conn.cursor()
 
