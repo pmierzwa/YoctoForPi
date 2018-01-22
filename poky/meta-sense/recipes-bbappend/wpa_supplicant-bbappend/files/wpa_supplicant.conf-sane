@@ -3,6 +3,6 @@ ctrl_interface_group=0
 update_config=1
 
 network={
-        ssid="ssid"
-	psk="pass"
+        ssid="SSID"
+	psk="PASSWORD"
 }

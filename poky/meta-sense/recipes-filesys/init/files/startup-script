@@ -1,0 +1,5 @@
+!/bin/bash
+touch /home/root/.profile
+echo "TZ='Europe/Copenhagen'; export TZ" > /home/root/.profile
+/usr/sbin/ntpd dk.pool.ntp.org
+modprobe i2c-dev

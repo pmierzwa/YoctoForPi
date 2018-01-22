@@ -1,0 +1,42 @@
+import pymysql
+from smbus import SMBus
+import datetime
+import time
+
+#Read data from sensor:
+bus=SMBus(1)                                            #Set bus to device 1 
+bus.write_i2c_block_data(0x44, 0x2C, [0x06])            #Request sensor to sense
+time.sleep(0.5)                                         #Wait for sensor to finish
+data=bus.read_i2c_block_data(0x44, 0x00, 6)             #Read the data from the sensor
+
+#Convert data
+temp = data[0] * 256 + data[1]                  
+cTemp = -45 + (175 * temp / 65535.0)                    #Calculate temperature in c
+humidity = 100 * (data[3] * 256 + data[4])/65535.0      #Calculate himidity
+
+# MySQL variable for database
+print ("Connecting...")
+
+conn = pymysql.connect(host='173.249.0.40',
+                       user= 'yoctopi0@90.184.21.122',
+                       password='customlinux123A',
+                       db = 'Yocto')
+
+cursor=conn.cursor()
+
+datetime = (time.strftime("%Y-%m-%d ")+ time.strftime("%H:%M:%S"))
+
+sql =  ("""INSERT INTO Log (datetime,temp,humidity) VALUES (%s,%s,%s) """,(datetime,cTemp,humidity)) # inserts the values into the database
+
+# try to commit changes, if there is an error then abandon changes.
+try:
+        print ("Writing..")
+        cursor.execute(*sql)
+        conn.commit()
+        print( "Write success")
+except:
+        conn.rollback()
+        print("Failed writing to database")
+
+cursor.close()
+conn.close()
