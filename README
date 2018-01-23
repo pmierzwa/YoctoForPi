@@ -1,0 +1,14 @@
+Change the SSID and password under meta-sense/recipes-bbappend/wpa_supplicant-bbappend/files/wpa_supplicant.conf-sane
+
+Change to correct server values under meta-sense/recipes-bbappend/recipes-filesys/sensescript/files/Sense
+
+
+Run the commands:
+source oe-init-build-env rpi-build
+bitbake rpi-basic-image
+
+
+
+
+Find the image under /rpi-build/tmp/deploy/images
+Rename the largest file within the image to a .img file and use win32 to write to sd-card.
