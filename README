@@ -14,3 +14,8 @@ bitbake rpi-basic-image
 
 Find the image under /rpi-build/tmp/deploy/images
 Rename the largest file within the image to a .img file and use win32 to write to sd-card. 
+
+
+login information:
+username: root
+no password
