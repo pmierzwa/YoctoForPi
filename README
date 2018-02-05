@@ -2,6 +2,8 @@ Change the SSID and password under meta-sense/recipes-bbappend/wpa_supplicant-bb
 
 Change to correct server values under meta-sense/recipes-bbappend/recipes-filesys/sensescript/files/Sense
 
+IMPORTANT:
+Change to your own paths in bblayers.conf.   (/poky/rpi-build/conf)
 
 Run the commands:
 source oe-init-build-env rpi-build
