@@ -14,6 +14,11 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 # 55  7     1 * *    root        cd / && run-parts /etc/cron.monthly
 #
 
+# Configure time
 TZ = 'Europe/Copenhagen'
-* * * * * root /usr/bin/python3 /home/root/Sense 
+@reboot root /etc/init.d/ntpd stop
+@reboot root /usr/sbin/ntpd -u root -gq && /etc/init.d/ntpd start
+
+# Scripts (sleep at least 20s to wait for time update at restart) 
+* * * * * root sleep 20 && /usr/bin/python3 /home/root/Sense
 
