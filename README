@@ -19,3 +19,21 @@ Rename the largest file within the image to a .img file and use win32 to write t
 login information:
 username: root
 no password
+
+
+INSTALLS:
+WIFI                      # linux-firmware-bcm43430
+i2c-tools
+hostapd
+wpa-supplicant
+
+:::INSTALLED PACKAGES:::
+* OpenSSH
+* nano
+* python3
+* cronie                  #crontab located in /etc/crontab on device
+* ntp                     #time sync
+* tzcode                  #timezone update
+* python3-smbus           #i2c for python
+
+
